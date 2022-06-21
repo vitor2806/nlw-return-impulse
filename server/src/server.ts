@@ -9,4 +9,4 @@ app.use(cors());
 app.use(express.json());
 app.use(routes);
 
-app.listen(5554, () => console.log('Running...'));
+app.listen(process.env.PORT || 5554, () => console.log('Running...'));
