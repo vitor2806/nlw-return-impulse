@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//This will create a table into DB
+model Feedback {
+  //String is relative to enviroment, prisma will convert it according to DB. In SQL String turns into VARCHAR. If I want to use a specific DB type, I can use @db.VarChar(char_quantity)
+  id         String  @id @default(uuid()) //@id means that this is the primary key. To do an autoincrement with prisma, I have to change it to id Int @id @default(autoincrement()) using UUID I'll prevent user from being able to see every ID just chaning URL. UUID Generates an UNIVERSAL UNIQUE ID. Example: 6c83193b-ec47-40f0-8808-8a63f8249046
+  type       String
+  comment    String
+  screenshot String? // ? at type means that this field is nullable, or doens't have NOT NULL prop.
+
+  //This will create table with name "feedbacks" instead of "Feedback"
+  @@map("feedbacks")
+}
+
+//To execute above script I must run "npx prisma migrate dev or deploy" into terminal
+//To see DB into a studio I can run npx prisma studio
