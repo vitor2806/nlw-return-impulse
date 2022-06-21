@@ -16,19 +16,25 @@ export const routes = express.Router();
  */
 
 routes.post('/feedbacks', async (req, res) => {
-  // When a new feedback is submitted, get all info
-  const { type, comment, screenshot } = req.body;
+  try {
+    // When a new feedback is submitted, get all info
+    const { type, comment, screenshot } = req.body;
 
-  const nodemailerMailAdapter = new NodemailerMailAdapter();
-  const prismaFeedbacksRepository = new PrismaFeedbacksRepository();
+    const nodemailerMailAdapter = new NodemailerMailAdapter();
+    const prismaFeedbacksRepository = new PrismaFeedbacksRepository();
 
-  //sending those params same order as they are in SubmitFeedbackService
-  const submitFeedbackService = new SubmitFeedbackService(prismaFeedbacksRepository, nodemailerMailAdapter);
-  await submitFeedbackService.execute({
-    type,
-    comment,
-    screenshot,
-  });
+    //sending those params same order as they are in SubmitFeedbackService
+    const submitFeedbackService = new SubmitFeedbackService(prismaFeedbacksRepository, nodemailerMailAdapter);
+    await submitFeedbackService.execute({
+      type,
+      comment,
+      screenshot,
+    });
+  } catch (err) {
+    console.error(err);
+
+    return res.status(500).send();
+  }
 
   //if everything did good, then return status 201, which means 'Created'
   return res.status(201).send();
