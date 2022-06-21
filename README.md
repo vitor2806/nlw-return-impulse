@@ -9,6 +9,10 @@
   <a href="#-extras">Extras</a>&nbsp;&nbsp;
 </p>
 
+<p align="center">
+  <img alt="Feedget" src=".github/cover.png" width="100%">
+</p>
+
 ## 🔧 Tech
 
 This project has been developed with:
@@ -64,10 +68,12 @@ npx prisma studio
 # this will open prisma studio into your main browser, so you can look at database
 ```
 
----
-
 ### 📎 Extras
 
 It has very useful tools that can help page management, such as use of nodemailer service with [Mailtrap](mailtrap.io) that automatically mails the user feedback to page owner inbox.
 
 Beside that it also apply principles from SOLID concept, like Dependency Inversion Principle. Which tells that a module shouldn't search for it dependencies, but use them as abstractions.
+
+---
+
+This project was guided and inspired by [Rocketseat](https://www.rocketseat.com.br/discover)
