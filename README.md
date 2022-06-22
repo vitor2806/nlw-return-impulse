@@ -23,6 +23,7 @@ This project has been developed with:
 - [Expo](https://expo.io/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Prisma](https://www.prisma.io/)
+- [Jest](https://jestjs.io/pt-BR/)
 
 ## 💻 Project
 
@@ -53,7 +54,7 @@ npm run dev
 - Mobile version
   - to run mobile version you must first change mobile/libs/api.ts
     - in this file you can change ip variable so it matches your local machine Ipv4 address.
-  - its also needed that you have a compatible mobile simulator or expo go installed in your phone.
+  - its also needed that you have a compatible mobile emulator or expo go installed in your phone.
 
 ```bash
 # nlw-return/mobile
